@@ -1,12 +1,12 @@
 [submodule "catalog"]
 	path = catalog
-	url = ./catalog/
+	url = https://github.com/vutiendat3601/beatbuddy-catalog-ms.git
 [submodule "eureka-discovery"]
 	path = eureka-discovery
-	url = ./eureka-discovery/
+	url = https://github.com/vutiendat3601/beatbuddy-eureka-discovery.git
 [submodule "nginx-gateway"]
 	path = nginx-gateway
-	url = ./nginx-gateway/
+	url = https://github.com/vutiendat3601/beatbuddy-nginx-gateway.git
 [submodule "playlist"]
 	path = playlist
-	url = ./playlist/
+	url = https://github.com/vutiendat3601/beatbuddy-playlist-ms.git
