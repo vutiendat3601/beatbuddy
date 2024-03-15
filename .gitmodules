@@ -1,0 +1,12 @@
+[submodule "catalog"]
+	path = catalog
+	url = ./catalog/
+[submodule "eureka-discovery"]
+	path = eureka-discovery
+	url = ./eureka-discovery/
+[submodule "nginx-gateway"]
+	path = nginx-gateway
+	url = ./nginx-gateway/
+[submodule "playlist"]
+	path = playlist
+	url = ./playlist/
