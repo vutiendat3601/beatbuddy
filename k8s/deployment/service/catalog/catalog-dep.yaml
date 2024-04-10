@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: catalog
+  namespace: beatbuddy-ns
+  labels:
+    uid: catalog-dep
+spec:
+  selector:
+    matchLabels:
+      uid: catalog-pod
+  template:
+    metadata:
+      labels:
+        uid: catalog-pod
+    spec:
+      containers:
+        - name: catalog-cont
+          image: docker.io/vutiendat3601/beatbuddy-catalog-ms:1.0.0
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 256Mi
+              cpu: 400m
+          ports:
+            - containerPort: 8010
+          envFrom:
+            - configMapRef:
+                name: catalog-cnfmap
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: catalog-srt
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: catalog-srt
+                  key: SPRING_DATASOURCE_USERNAME
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: catalog-srt
+                  key: SPRING_DATASOURCE_PASSWORD

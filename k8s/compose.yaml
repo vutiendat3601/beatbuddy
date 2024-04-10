@@ -1,0 +1,69 @@
+name: beatbuddy
+services:
+  user-ms:
+    image: docker.io/vutiendat3601/beatbuddy-user-ms
+    container_name: user-ms
+    hostname: user-ms
+    environment:
+      - SERVER_PORT=8000
+      - SPRING_PROFILES_ACTIVE=test
+      - SPRING_R2DBC_URL=r2dbc:postgresql://beatbuddy.io.vn:18000/beatbuddy_user
+      - SPRING_R2DBC_USERNAME=beatbuddy
+      - SPRING_R2DBC_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+      - SPRING_FLYWAY_URL=jdbc:postgresql://beatbuddy.io.vn:18000/beatbuddy_user
+      - SPRING_FLYWAY_USER=beatbuddy
+      - SPRING_FLYWAY_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+    ports:
+      - 8000:8000
+    networks:
+      - default
+  catalog-ms:
+    image: docker.io/vutiendat3601/beatbuddy-catalog-ms
+    container_name: catalog-ms
+    hostname: catalog-ms
+    environment:
+      - SERVER_PORT=8020
+      - SPRING_PROFILES_ACTIVE=test
+    ports:
+      - 8020:8020
+    networks:
+      - default
+  artist-ms:
+    image: docker.io/vutiendat3601/beatbuddy-artist-ms
+    container_name: artist-ms
+    hostname: artist-ms
+    environment:
+      - SERVER_PORT=8040
+      - SPRING_PROFILES_ACTIVE=test
+      - SPRING_R2DBC_URL=r2dbc:postgresql://beatbuddy.io.vn:18040/beatbuddy_artist
+      - SPRING_R2DBC_USERNAME=beatbuddy
+      - SPRING_R2DBC_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+      - SPRING_FLYWAY_URL=jdbc:postgresql://beatbuddy.io.vn:18040/beatbuddy_artist
+      - SPRING_FLYWAY_USER=beatbuddy
+      - SPRING_FLYWAY_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+    ports:
+      - 8040:8040
+    networks:
+      - default
+  track-ms:
+    image: docker.io/vutiendat3601/beatbuddy-track-ms
+    container_name: track-ms
+    hostname: track-ms
+    environment:
+      - SERVER_PORT=8050
+      - SPRING_PROFILES_ACTIVE=test
+      - SPRING_R2DBC_URL=r2dbc:postgresql://beatbuddy.io.vn:18050/beatbuddy_track
+      - SPRING_R2DBC_USERNAME=beatbuddy
+      - SPRING_R2DBC_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+      - SPRING_FLYWAY_URL=jdbc:postgresql://beatbuddy.io.vn:18050/beatbuddy_track
+      - SPRING_FLYWAY_USER=beatbuddy
+      - SPRING_FLYWAY_PASSWORD=9258605ccdf074ea139bcb8f3a813d1a
+    ports:
+      - 8050:8050
+    networks:
+      - default
+
+networks:
+  default:
+    name: beatbuddy
+    driver: bridge

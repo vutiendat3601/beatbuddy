@@ -1,1 +1,3 @@
-.devcontainer/vscode
+.devcontainer
+!.devcontainer/compose.yaml
+!.devcontainer/devcontainer.json
