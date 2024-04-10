@@ -1,0 +1,9 @@
+server:
+  port: 8800
+spring:
+  application:
+    name: search
+  devtools:
+    livereload:
+      enabled: false
+      port: 0

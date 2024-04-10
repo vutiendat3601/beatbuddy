@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: playlist-db-volclaim
+  labels:
+    uid: playlist-db-volclaim
+spec:
+  storageClassName: playlist-db-vol
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

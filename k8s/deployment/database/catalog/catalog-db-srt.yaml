@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: catalog-db-srt
+  labels:
+    uid: catalog-db-srt
+type: Opaque
+data:
+  POSTGRES_USER: YmJjYXRhbG9nZGI=
+  POSTGRES_PASSWORD: YmJjYXRhbG9nZGI=

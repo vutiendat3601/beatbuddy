@@ -21,16 +21,18 @@
 			"installMaven": "true",
 			"installGradle": "false"
 		},
-		"ghcr.io/devcontainers/features/docker-outside-of-docker": "latest"
+		"ghcr.io/devcontainers/features/docker-outside-of-docker": {},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube": {
+			"helm": "latest",
+			"minikube": "none"
+		},
+		"ghcr.io/devcontainers/features/terraform": {},
+		"ghcr.io/rio/features/k9s": {}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Uncomment the next line if you want start specific services in your Docker Compose config.
 	"runServices": [
-		"eureka-discovery",
-		"nginx-gateway",
-		"catalog-db",
-		"playlist-db"
 	],
 	// Uncomment the next line if you want to keep your containers running after VS Code shuts down.
 	// "shutdownAction": "none",
@@ -40,7 +42,14 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"github.copilot"
+				"github.copilot",
+				"ms-kubernetes-tools.vscode-kubernetes-tools",
+				"redhat.vscode-yaml",
+				"redhat.vscode-xml",
+				"hashicorp.terraform",
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-spring-boot",
+				"vscjava.vscode-spring-initializr"
 			]
 		}
 	},

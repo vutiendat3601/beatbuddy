@@ -1,3 +1,8 @@
+# ## Port: 7000
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/vutiendat3601/beatbuddy-gateway.git
+
 # ## Port: 8000
 [submodule "user"]
 	path = user
@@ -37,16 +42,3 @@
 [submodule "search"]
 	path = search
 	url = https://github.com/vutiendat3601/beatbuddy-search-ms.git
-	
-# ## Port: 9000
-[submodule "spring-gateway"]
-	path = spring-gateway
-	url = https://github.com/vutiendat3601/beatbuddy-spring-gateway.git
-
-[submodule "eureka-discovery"]
-	path = eureka-discovery
-	url = https://github.com/vutiendat3601/beatbuddy-eureka-discovery.git
-[submodule "nginx-gateway"]
-	path = nginx-gateway
-	url = https://github.com/vutiendat3601/beatbuddy-nginx-gateway.git
-

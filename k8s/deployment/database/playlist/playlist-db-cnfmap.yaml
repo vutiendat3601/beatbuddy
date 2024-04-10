@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: playlist-db-cnfmap
+  labels:
+    uid: playlist-db-cnfmap
+data:
+  POSTGRES_DB: beatbuddy_playlist
