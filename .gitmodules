@@ -1,12 +1,52 @@
+# ## Port: 8000
+[submodule "user"]
+	path = user
+	url = https://github.com/vutiendat3601/beatbuddy-user-ms.git
+
+# ## Port: 8010
 [submodule "catalog"]
 	path = catalog
 	url = https://github.com/vutiendat3601/beatbuddy-catalog-ms.git
+
+# ## Port: 8020
+[submodule "notification"]
+	path = notification
+	url = https://github.com/vutiendat3601/beatbuddy-notification-ms.git
+
+# ## Port: 8030
+[submodule "playback"]
+	path = playback
+	url = https://github.com/vutiendat3601/beatbuddy-playback-ms.git
+
+# ## Port: 8040
+[submodule "artist"]
+	path = artist
+	url = https://github.com/vutiendat3601/beatbuddy-artist-ms.git
+
+# ## Port: 8050
+[submodule "track"]
+	path = track
+	url = https://github.com/vutiendat3601/beatbuddy-track-ms.git
+
+# ## Port: 8060
+[submodule "playlist"]
+	path = playlist
+	url = https://github.com/vutiendat3601/beatbuddy-playlist-ms.git
+
+# ## Port: 8070
+[submodule "search"]
+	path = search
+	url = https://github.com/vutiendat3601/beatbuddy-search-ms.git
+	
+# ## Port: 9000
+[submodule "spring-gateway"]
+	path = spring-gateway
+	url = https://github.com/vutiendat3601/beatbuddy-spring-gateway.git
+
 [submodule "eureka-discovery"]
 	path = eureka-discovery
 	url = https://github.com/vutiendat3601/beatbuddy-eureka-discovery.git
 [submodule "nginx-gateway"]
 	path = nginx-gateway
 	url = https://github.com/vutiendat3601/beatbuddy-nginx-gateway.git
-[submodule "playlist"]
-	path = playlist
-	url = https://github.com/vutiendat3601/beatbuddy-playlist-ms.git
+
