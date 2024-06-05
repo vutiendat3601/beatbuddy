@@ -1,0 +1,15 @@
+{{- define "commonProp.configMap" -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: {{ .Values.global.namespace }}
+  name: {{ .Values.configMapName }}
+  labels:
+    configMap: {{ .Values.configMapName }}
+data:
+  SPRING_PROFILES_ACTIVE: {{ .Values.global.springProfilesActive }}
+  SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL: {{ .Values.global.springCloudKubernetesDiscoveryDiscoveryServerUrl }}
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI: {{ .Values.global.springSecurityOauth2ResourceserverJwtJwkSetUri }}
+  SPRING_FLYWAY_BASELINE_VERSION: "{{ .Values.springFlywayBaselineVersion }}"
+  SPRING_FLYWAY_BASELINE_ON_MIGRATE: "{{ .Values.springFlywayBaselineOnMigrate }}"
+{{- end -}}

@@ -4,103 +4,68 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "java",
-            "name": "AuthClient",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.playlist.service.client.AuthClient",
-            "projectName": "playlist"
-        },
-        {
-            "type": "java",
-            "name": "PlaylistServiceImpl",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.playlist.service.impl.PlaylistServiceImpl",
-            "projectName": "playlist"
-        },
-        {
-            "type": "java",
-            "name": "GatewayApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.gateway.GatewayApplication",
-            "projectName": "gateway",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "GatewaymvcApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.gatewaymvc.GatewaymvcApplication",
-            "projectName": "gatewaymvc"
-        },
-        {
-            "type": "java",
-            "name": "CatalogServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.catalog.CatalogServiceApplication",
-            "projectName": "catalog"
-        },
-        {
-            "type": "java",
-            "name": "PlaylistServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.playlist.PlaylistServiceApplication",
-            "projectName": "playlist",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "UserServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.user.UserServiceApplication",
-            "projectName": "user",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "TrackServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.track.TrackServiceApplication",
-            "projectName": "track",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "ArtistServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.vutiendat3601.beatbuddy.artist.ArtistServiceApplication",
-            "projectName": "artist",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "SpringGatewayServerApplication",
-            "request": "launch",
-            "mainClass": "vn.io.datvutech.beatbuddy.springgateway.SpringGatewayServerApplication",
-            "projectName": "springgateway"
-        },
-        {
-            "type": "java",
-            "name": "NotificationServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.datvutech.beatbuddy.notification.NotificationServiceApplication",
-            "projectName": "notification"
-        },
-        {
-            "type": "java",
-            "name": "SearchServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.datvutech.beatbuddy.search.SearchServiceApplication",
-            "projectName": "search",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        },
-        {
-            "type": "java",
-            "name": "PlaybackServiceApplication",
-            "request": "launch",
-            "mainClass": "vn.io.datvutech.beatbuddy.playback.PlaybackServiceApplication",
-            "projectName": "playback",
-            "vmArgs": "-Dspring.profiles.active=dev"
-        }
+      {
+        "type": "java",
+        "name": "YtDlpCliWrapper",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.audio.ytdlp.YtDlpCliWrapper",
+        "projectName": "audio"
+      },
+      {
+        "type": "java",
+        "name": "AudioServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.audio.AudioServiceApplication",
+        "projectName": "audio",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "GatewayApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.gateway.GatewayApplication",
+        "projectName": "gateway",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "CatalogServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.catalog.CatalogServiceApplication",
+        "projectName": "catalog",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "PlaylistServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.playlist.PlaylistServiceApplication",
+        "projectName": "playlist",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "UserServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.user.UserServiceApplication",
+        "projectName": "user",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "TrackServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.track.TrackServiceApplication",
+        "projectName": "track",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      },
+      {
+        "type": "java",
+        "name": "ArtistServiceApplication",
+        "request": "launch",
+        "mainClass": "vn.io.vutiendat3601.beatbuddy.artist.ArtistServiceApplication",
+        "projectName": "artist",
+        "vmArgs": "-Dspring.profiles.active=dev"
+      }
     ]
 }

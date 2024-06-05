@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: List
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    namespace: beatbuddy
+    labels:
+      app: springcloud-k8s-discovery-svc
+    name: springcloud-k8s-discovery-svc
+  spec:
+    ports:
+    - name: http
+      port: {{ .Values.discovery.service.port }}
+      targetPort: {{ .Values.discovery.port }}
+    selector:
+      app: springcloud-k8s-discovery
+    type: ClusterIP
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    namespace: beatbuddy
+    labels:
+      app: springcloud-k8s-discovery
+    name: springcloud-k8s-discovery-svcacc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    namespace: beatbuddy
+    labels:
+      app: springcloud-k8s-discovery
+    name: springcloud-k8s-discovery:view
+  roleRef:
+    kind: Role
+    apiGroup: rbac.authorization.k8s.io
+    name: namespace-reader
+  subjects:
+  - kind: ServiceAccount
+    name: springcloud-k8s-discovery-svcacc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    namespace: beatbuddy
+    name: namespace-reader
+  rules:
+  - apiGroups: ["", "extensions", "apps"]
+    resources: ["services", "endpoints", "pods"]
+    verbs: ["get", "list", "watch"]
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    namespace: beatbuddy
+    name: springcloud-k8s-discovery-dep
+  spec:
+    selector:
+      matchLabels:
+        app: springcloud-k8s-discovery
+    replicas: {{ .Values.discovery.replicaCount }}
+    template:
+      metadata:
+        labels:
+          app: springcloud-k8s-discovery
+      spec:
+        serviceAccount: springcloud-k8s-discovery-svcacc
+        containers:
+        - name: springcloud-k8s-discovery
+          image: "{{ .Values.discovery.image.repository }}:{{ .Values.discovery.image.tag }}"
+          imagePullPolicy: {{ .Values.discovery.image.pullPolicy }}
+          readinessProbe:
+            httpGet:
+              port: {{ .Values.discovery.port }}
+              path: /actuator/health/readiness
+            initialDelaySeconds: 100
+            periodSeconds: 30
+          livenessProbe:
+            httpGet:
+              port: {{ .Values.discovery.port }}
+              path: /actuator/health/liveness
+          ports:
+          - containerPort: {{ .Values.discovery.port }}

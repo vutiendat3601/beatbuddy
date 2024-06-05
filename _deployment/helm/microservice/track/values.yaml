@@ -1,0 +1,38 @@
+secretName: track-srt
+configMapName: track-cnfmap
+deploymentName: track-ms-dep
+serviceName: track-ms
+hostname: track-ms
+appLabel: track-ms
+appName: track-ms
+containerPort: 8050
+springCloudKubernetesDiscoveryEnabled: true
+
+# # R2DBC configuration
+r2dbcEnabled: true
+springR2dbcUrl: r2dbc:postgresql://beatbuddy-sgp-pg-do-user-4169074-0.c.db.ondigitalocean.com:25060/beatbuddy_track?sslmode=require
+springR2dbcUsername: beatbuddy
+springR2dbcPassword: AVNS_elUMsgjoJ9M2Oxsavkh
+
+# # Flyway configuration
+flywayEnabled: true
+springFlywayUrl: jdbc:postgresql://beatbuddy-sgp-pg-do-user-4169074-0.c.db.ondigitalocean.com:25060/beatbuddy_track?sslmode=require
+springFlywayUser: beatbuddy
+springFlywayPassword: AVNS_elUMsgjoJ9M2Oxsavkh
+springFlywayBaselineVersion: 0
+springFlywayBaselineOnMigrate: true
+
+# # Kafka
+kafkaEnabled: true
+
+replicaCount: 1
+
+image:
+  repository: docker.io/vutiendat3601/beatbuddy-track-ms
+  pullPolicy: Always
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8050
+  targetPort: 8050

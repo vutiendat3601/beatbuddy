@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: beatbuddy
+  labels:
+    ingress: ingress
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api.beatbuddy.io.vn
+      secretName: api.beatbuddy.io.vn
+    - hosts:
+        - auth.beatbuddy.io.vn
+      secretName: auth.beatbuddy.io.vn
+  rules:
+    - host: api.beatbuddy.io.vn
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: gateway
+                port:
+                  number: 7000
+    - host: auth.beatbuddy.io.vn
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: keycloak
+                port:
+                  number: 7010

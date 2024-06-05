@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: playlist-cnfmap
-  namespace: beatbuddy-ns
-  labels:
-    uid: playlist-cnfmap
-data:
-  SPRING_PROFILES_ACTIVE: stag

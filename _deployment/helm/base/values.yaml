@@ -1,0 +1,9 @@
+discovery:
+  image:
+    repository: springcloud/spring-cloud-kubernetes-discoveryserver
+    tag: "3.1.1"
+    pullPolicy: Always
+  port: 8761
+  replicaCount: 1
+  service:
+    port: 80

@@ -1,0 +1,101 @@
+{{- define "commonProp.deployment" -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName }}
+  labels:
+    app: {{ .Values.appLabel }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.appLabel }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.appLabel }}
+    spec:
+      hostname: {{ .Values.hostname }}
+      containers:
+      - name: {{ .Values.appLabel }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - containerPort: {{ .Values.containerPort }}
+          protocol: TCP
+        env:
+        - name: SPRING_APPLICATION_NAME
+          value: {{ .Values.appName }}
+        - name: SPRING_PROFILES_ACTIVE
+          valueFrom: 
+            configMapKeyRef:
+              name: {{ .Values.configMapName }}
+              key: SPRING_PROFILES_ACTIVE
+              
+        # #: Spring Cloud Kubernetes Discovery
+        {{- if .Values.springCloudKubernetesDiscoveryEnabled }}
+        - name: SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL
+          valueFrom: 
+            configMapKeyRef:
+              name: {{ .Values.configMapName }}
+              key: SPRING_CLOUD_KUBERNETES_DISCOVERY_DISCOVERY_SERVER_URL
+        {{- end }}
+
+        # #: R2DBC
+        {{- if .Values.r2dbcEnabled }}
+        - name: SPRING_R2DBC_URL
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_R2DBC_URL
+        - name: SPRING_R2DBC_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_R2DBC_USERNAME
+        - name: SPRING_R2DBC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_R2DBC_PASSWORD
+        {{- end }}
+        # # R2DBC
+
+        # #: Flyway
+        {{- if .Values.flywayEnabled }}
+        - name: SPRING_FLYWAY_URL
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_FLYWAY_URL
+        - name: SPRING_FLYWAY_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_FLYWAY_USER
+        - name: SPRING_FLYWAY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_FLYWAY_PASSWORD
+        - name: SPRING_FLYWAY_BASELINE_ON_MIGRATE
+          valueFrom:
+            configMapKeyRef:
+              name: {{ .Values.configMapName }}
+              key: SPRING_FLYWAY_BASELINE_ON_MIGRATE
+        - name: SPRING_FLYWAY_BASELINE_VERSION
+          valueFrom: 
+            configMapKeyRef:
+              name: {{ .Values.configMapName }}
+              key: SPRING_FLYWAY_BASELINE_VERSION
+        {{- end }}
+        
+        # #: Kafka
+        {{- if .Values.kafkaEnabled }}
+        - name: SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS
+        {{- end }}
+{{- end -}}

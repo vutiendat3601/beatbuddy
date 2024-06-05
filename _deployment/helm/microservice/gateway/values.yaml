@@ -1,0 +1,31 @@
+secretName: gateway-srt
+configMapName: gateway-cnfmap
+deploymentName: gateway-dep
+serviceName: gateway
+appLabel: gateway
+appName: gateway
+containerPort: 7000
+springCloudKubernetesDiscoveryEnabled: true
+
+# # R2DBC configuration
+r2dbcEnabled: false
+
+# # Flyway configuration
+flywayEnabled: false
+springFlywayBaselineVersion: ""
+springFlywayBaselineOnMigrate: ""
+
+# # Kafka
+kafkaEnabled: false
+
+replicaCount: 2
+
+image:
+  repository: docker.io/vutiendat3601/beatbuddy-gateway
+  pullPolicy: Always
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 7000
+  targetPort: 7000

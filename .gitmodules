@@ -1,44 +1,49 @@
-# ## Port: 7000
+# # Port: 7000
 [submodule "gateway"]
 	path = gateway
 	url = https://github.com/vutiendat3601/beatbuddy-gateway.git
 
-# ## Port: 8000
+# # Port: 8000
 [submodule "user"]
 	path = user
 	url = https://github.com/vutiendat3601/beatbuddy-user-ms.git
 
-# ## Port: 8010
+# # Port: 8010
 [submodule "catalog"]
 	path = catalog
 	url = https://github.com/vutiendat3601/beatbuddy-catalog-ms.git
 
-# ## Port: 8020
-[submodule "notification"]
-	path = notification
-	url = https://github.com/vutiendat3601/beatbuddy-notification-ms.git
-
-# ## Port: 8030
-[submodule "playback"]
-	path = playback
-	url = https://github.com/vutiendat3601/beatbuddy-playback-ms.git
-
-# ## Port: 8040
-[submodule "artist"]
-	path = artist
-	url = https://github.com/vutiendat3601/beatbuddy-artist-ms.git
-
-# ## Port: 8050
-[submodule "track"]
-	path = track
-	url = https://github.com/vutiendat3601/beatbuddy-track-ms.git
-
-# ## Port: 8060
+# # Port: 8020
 [submodule "playlist"]
 	path = playlist
 	url = https://github.com/vutiendat3601/beatbuddy-playlist-ms.git
 
-# ## Port: 8070
+# # Port: 8030
+[submodule "audio"]
+	path = audio
+	url = ./audio
+
+# # Port: 8040
+[submodule "artist"]
+	path = artist
+	url = https://github.com/vutiendat3601/beatbuddy-artist-ms.git
+
+# # Port: 8050
+[submodule "track"]
+	path = track
+	url = https://github.com/vutiendat3601/beatbuddy-track-ms.git
+
+# # Port: 8060
+[submodule "notification"]
+	path = notification
+	url = https://github.com/vutiendat3601/beatbuddy-notification-ms.git
+
+# # Port: 8070
 [submodule "search"]
 	path = search
 	url = https://github.com/vutiendat3601/beatbuddy-search-ms.git
+
+# # Port: 8080
+[submodule "playback"]
+	path = playback
+	url = https://github.com/vutiendat3601/beatbuddy-playback-ms.git

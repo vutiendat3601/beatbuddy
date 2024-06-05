@@ -1,0 +1,27 @@
+dependencies:
+- name: common-prop
+  repository: file://../../common-prop
+  version: 0.1.0
+- name: gateway
+  repository: file://../../microservice/gateway
+  version: 0.1.0
+- name: user-ms
+  repository: file://../../microservice/user
+  version: 0.1.0
+- name: catalog-ms
+  repository: file://../../microservice/catalog
+  version: 0.1.0
+- name: playlist-ms
+  repository: file://../../microservice/playlist
+  version: 0.1.0
+- name: audio-ms
+  repository: file://../../microservice/audio
+  version: 0.1.0
+- name: artist-ms
+  repository: file://../../microservice/artist
+  version: 0.1.0
+- name: track-ms
+  repository: file://../../microservice/track
+  version: 0.1.0
+digest: sha256:3dbbf4423c9749214d9cbb8c2a12ec88feb043d869ef9878420c0a851bf7dd69
+generated: "2024-04-25T14:28:22.190579385Z"

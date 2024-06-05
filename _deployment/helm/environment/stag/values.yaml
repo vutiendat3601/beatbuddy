@@ -1,0 +1,6 @@
+global:
+  namespace: beatbuddy
+  springProfilesActive: stag
+  springCloudKubernetesDiscoveryDiscoveryServerUrl: http://springcloud-k8s-discovery
+  springSecurityOauth2ResourceserverJwtJwkSetUri:
+  kafkaBrokers: springhcm.asuscomm.com:9092

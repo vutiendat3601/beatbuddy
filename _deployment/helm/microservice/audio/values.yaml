@@ -1,0 +1,32 @@
+secretName: audio-srt
+configMapName: audio-cnfmap
+deploymentName: audio-ms-dep
+serviceName: audio-ms
+hostname: audio-ms
+appLabel: audio-ms
+appName: audio-ms
+containerPort: 8030
+springCloudKubernetesDiscoveryEnabled: true
+
+# # R2DBC configuration
+r2dbcEnabled: false
+
+# # Flyway configuration
+flywayEnabled: false
+springFlywayBaselineVersion: ""
+springFlywayBaselineOnMigrate: ""
+
+# # Kafka
+kafkaEnabled: true
+
+replicaCount: 1
+
+image:
+  repository: docker.io/vutiendat3601/beatbuddy-audio-ms
+  pullPolicy: Always
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8030
+  targetPort: 8030
